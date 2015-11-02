@@ -40,7 +40,7 @@
     _currentFileName = [NSString stringWithFormat:@"MyAudioFile%lu.m4a", _array_fileNames.count + 1];
     NSArray  *path = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject],_currentFileName, nil];
     NSURL *audioUrl = [NSURL fileURLWithPathComponents:path];
-    NSLog(@"the audio path is %@", audioUrl);
+    //NSLog(@"the audio path is %@", audioUrl);
     
     //creating session
     AVAudioSession *recordSession = [AVAudioSession sharedInstance];
@@ -63,7 +63,7 @@
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setActive:YES error:nil];
         [_recoder record];
-        NSLog(@"Recording is started");
+        //NSLog(@"Recording is started");
     }
     else
     {
@@ -78,12 +78,12 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
     [_array_recorderUrls addObject:_recoder.url];
-    NSLog(@"url: %@", _recoder.url);
+//    NSLog(@"url: %@", _recoder.url);
     [_array_fileNames addObject:_currentFileName];
-    NSLog(@"current name: %@", _currentFileName);
-    NSLog(@"filename list: %@", [_array_fileNames description]);
-    NSLog(@"recorder url list: %@", [_array_recorderUrls description]);
-    NSLog(@"Recording is Stopped");
+//    NSLog(@"current name: %@", _currentFileName);
+//    NSLog(@"filename list: %@", [_array_fileNames description]);
+//    NSLog(@"recorder url list: %@", [_array_recorderUrls description]);
+//    NSLog(@"Recording is Stopped");
 
 }
 
@@ -99,19 +99,25 @@
     
     UITableViewCell *myCell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioCell"];
     myCell.textLabel.text = [_array_fileNames objectAtIndex:indexPath.row];
-    NSURL *currentUrl = [_array_recorderUrls objectAtIndex:indexPath.row];
+    return myCell;
+}
 
+#pragma mark Play the audio
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
+    
+    
+    NSURL *currentUrl = [_array_recorderUrls objectAtIndex:indexPath.row];
+    
     if (!_recoder.recording) {
         _player = [[AVAudioPlayer alloc]initWithContentsOfURL:currentUrl error:nil];
         _player.delegate = self;
         [_player play];
     }
-    return myCell;
 }
 
 -(void) audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {
-    NSLog(@"Done with playing the audio file");
+    //NSLog(@"Done with playing the audio file");
     dispatch_async(dispatch_get_main_queue(), ^{
         [_tableview_audioList reloadData];
     });
