@@ -15,6 +15,7 @@
 		B6DAF79C1BE582570049DD2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DAF79A1BE582570049DD2F /* LaunchScreen.storyboard */; };
 		B6DAF7A71BE582570049DD2F /* Audio_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DAF7A61BE582570049DD2F /* Audio_ListTests.m */; };
 		B6DAF7B21BE582570049DD2F /* Audio_ListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DAF7B11BE582570049DD2F /* Audio_ListUITests.m */; };
+		B6DAF7C01BE587B80049DD2F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6DAF7BF1BE587B80049DD2F /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B6DAF7AD1BE582570049DD2F /* Audio ListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Audio ListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DAF7B11BE582570049DD2F /* Audio_ListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Audio_ListUITests.m; sourceTree = "<group>"; };
 		B6DAF7B31BE582570049DD2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6DAF7BF1BE587B80049DD2F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6DAF7C01BE587B80049DD2F /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 		B6DAF7801BE582570049DD2F = {
 			isa = PBXGroup;
 			children = (
+				B6DAF7BF1BE587B80049DD2F /* AVFoundation.framework */,
 				B6DAF78B1BE582570049DD2F /* Audio List */,
 				B6DAF7A51BE582570049DD2F /* Audio ListTests */,
 				B6DAF7B01BE582570049DD2F /* Audio ListUITests */,
